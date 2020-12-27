@@ -1,0 +1,26 @@
+# Test set up
+
+# Firefox config
+Since mozila firefox does't allow self-signed signatures you will have 
+to ajust the browser yourself:
+
+1. start the backend with `mvnw spring-boot:run`
+
+2. Open up firefox and write `about:preferences#privacy`
+in the  address bar.
+
+3. Go to `View Certificates` --> `Servers`  --> 
+`Add Exception...` 
+
+4. Write in `ttps://localhost:8080/` as an exception you want to make
+
+5. Go `Get Certificate` --> `Confirm Security Exception`
+
+# Start the test
+
+Other than that all you need to do is:
+ 1. Go to terminal
+ 2. `cd` to root folder
+ 3. Start the tests with  `mvnw test`
+ 
+ and that is it, gratz.
