@@ -13,7 +13,6 @@ public class FunctionalTest {
     public static void setUp(){
         System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
         driver = new FirefoxDriver();
-        driver.get("http://localhost:3000/settings");
     }
 
     @AfterAll

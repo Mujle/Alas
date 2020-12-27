@@ -8,19 +8,21 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
-class SettingsIT extends FunctionalTest{
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class SettingsTest extends FunctionalTest{
 
     /*
     Tests the Start button in settings page
-
     ***Test will pass only when the db si empty
     */
     @Test
+    @Order(1)
     public void canInjectDataIntoBackend() {
+        driver.get("http://localhost:3000/settings");
         SettingsPage settingsPage = new SettingsPage(driver);
 
         settingsPage.startInjection();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         assertEquals("Injected: Students(20), Teachers(20), Courses(20)", settingsPage.getInjectionResponse());
     }
